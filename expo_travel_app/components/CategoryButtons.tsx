@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useRef, useState } from "react";
 import Colors from "@/constants/Colors";
-import destinationCategories from "@/data/categories";
+import destinationCategories from "@/data/categories.ts";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 type Props = {
