@@ -20,12 +20,17 @@ import groupData from "@/data/groups.json";
 
 const Page = () => {
   const headerHeight = useHeaderHeight();
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("Бүгд");
 
   const onCatChanged = (category: string) => {
     console.log("Categpry: ", category);
     setCategory(category);
   };
+
+  const filteredListings =
+  category === "Бүгд"
+    ? listingData
+    : listingData.filter((item) => item.category === category);
 
   return (
     <>
@@ -81,9 +86,12 @@ const Page = () => {
             </TouchableOpacity>
           </View>
 
+
           <CategoryButtons onCagtegoryChanged={onCatChanged} />
 
-          <Listings listings={listingData} category={category} />
+
+          <Listings listings={filteredListings} />
+          {/* <Listings listings={listingData} category={category} /> */}
 
           <GroupListings listings={groupData} />
         </ScrollView>
